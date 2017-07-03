@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import currentUser from './currentUser';
-import restaurants from './restaurants';
+import defaultReducer from './defaultReducer.js'
+
 
 
 export default combineReducers ({
-  currentUser,
-  restaurants
+defaultReducer
 })
