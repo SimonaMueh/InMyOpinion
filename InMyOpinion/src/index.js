@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import {Provider} from 'react-redux';
-import store from './Store';
+import store from './store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import App from './Containers/App';
+import App from './routes/App';
 
 ReactDOM.render(
   <MuiThemeProvider>
