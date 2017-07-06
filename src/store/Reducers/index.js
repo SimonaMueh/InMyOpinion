@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import defaultReducer from './defaultReducer.js'
+import topicReducer from './topicReducer.js'
 
 
 
 export default combineReducers ({
-defaultReducer
+topicReducer
 })
