@@ -7,14 +7,18 @@ import store from './store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './containers/Navbar';
 import App from './routes/App';
+import Home from './routes/Home';
 
 ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path = "/" component = { App } />
+            <Navbar>
+              <Route exact path="/" component={Home} />
+            </Navbar>
         </Switch>
       </Router>
     </Provider>
