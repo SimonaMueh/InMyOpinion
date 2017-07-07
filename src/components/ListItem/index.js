@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 
 class ListItem extends Component{
   render(){
+    const {topic} = this.props;
     return(
       <div style={{marginBottom: 10}}>
-        <li> {this.props.topic} </li>
+        <li>
+          <Link to={'/topics/'+topic.id}>{topic.text}</Link>
+        </li>
       </div>
 
     );

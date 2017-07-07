@@ -4,6 +4,8 @@ import ListItem from '../ListItem';
 
 
 
+
+
 class TopicsList extends Component {
   componentDidMount(){
       fetch('http://localhost:8080/topics')
@@ -24,12 +26,10 @@ class TopicsList extends Component {
       <div>
         <ul>
          {this.props.topics.map((topic) => {
-            return <ListItem
-                key={topic.id}
-                topic={topic.text}
-                />
+            return <ListItem key={topic.id} topic={topic}/>
+
            })
-          }
+         }
         </ul>
       </div>
     );

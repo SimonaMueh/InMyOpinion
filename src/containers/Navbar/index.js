@@ -35,7 +35,7 @@ class Navbar extends Component {
   handleChange = (event, index, value) => this.setState({value});
 
   render() {
-    console.log(this.props);
+    console.log('in da navbar', this.props);
     return (
       <div >
         <Toolbar>
