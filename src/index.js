@@ -11,6 +11,7 @@ import Navbar from './containers/Navbar';
 import App from './routes/App';
 import Home from './routes/Home';
 import TopicDetailPage from './routes/TopicDetailPage';
+import TopicResultPage from './routes/TopicResultPage';
 
 
 injectTapEventPlugin();
@@ -23,6 +24,7 @@ ReactDOM.render(
             <Navbar>
               <Route exact path="/" component={Home} />
               <Route exact path="/topics/:id" component={TopicDetailPage} />
+              <Route exact path="/topics/:id/result" component={TopicResultPage} />
             </Navbar>
         </Switch>
       </Router>

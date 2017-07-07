@@ -5,14 +5,28 @@ import {connect} from 'react-redux';
 
 class TopicDetailPage extends Component {
 
+
+
+  handleYesClick = () => {
+    this.props.history.push('/topics/'+this.props.topic.id+'/result');
+  }
+
+  handleNoClick = () => {
+    this.props.history.push('/topics/'+this.props.topic.id+'/result');
+  }
+
   render(){
+    console.log("in da Detailpage", this.state);
     const {topic} = this.props;
-    console.log(this.props);
+    console.log("in da TopicDetailPage", this.props);
     return (
       <div>
         <h1>{topic.text}</h1>
-        <button>Yes</button>
-        <button>No</button>
+        <button onClick = {this.handleYesClick}>
+          Yes
+        </button>
+        <button onTouchTap = {this.handleNoClick}
+          >No</button>
       </div>
     );
   }
