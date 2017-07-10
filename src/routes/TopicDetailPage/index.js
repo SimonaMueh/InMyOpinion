@@ -48,6 +48,7 @@ class TopicDetailPage extends Component {
 
 
 const mapStateToProps = (state, props) =>{
+  console.log('indaMapStateToProps', this.props);
     const id = props.match.params.id;
     const myTopic = state.topicReducer.filter((topic) => topic.id == id)
     return{
