@@ -5,6 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 import qs from 'query-string';
+import '../../style.css';
 
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
@@ -38,20 +39,22 @@ class Navbar extends Component {
     console.log('in da navbar', this.props);
     return (
       <div >
-        <Toolbar>
+        <Toolbar className="NavbarNavbar">
           <ToolbarGroup firstChild={true}></ToolbarGroup>
-
-          <ToolbarGroup lastChild={true}>
-            <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+          <ToolbarGroup>
+            <DropDownMenu className="NavbarDropDown" value={this.state.value} onChange={this.handleChange}>
               <MenuItem value={1} primaryText="Category: show all"/>
               <MenuItem value={2} primaryText="Every Night"/>
             </DropDownMenu>
+          </ToolbarGroup>
+
+          <ToolbarGroup lastChild={true}>
             <form onSubmit={this.handleSubmit}>
               <input placeholder="find a topic" onChange={this.handleSearch} value={this.state.query}/>
             </form>
-            <SearchIcon/>
-            <AddIcon/>
-            <ReorderIcon/>
+            <SearchIcon className="NavbarSearch"/>
+            <AddIcon className="NavbarAdd"/>
+            <ReorderIcon className="NavbarReorder"/>
           </ToolbarGroup>
         </Toolbar>
 

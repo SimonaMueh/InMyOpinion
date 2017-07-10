@@ -2,30 +2,44 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 
+const postVote = (id, selection) => {
+  var myHeaders = new Headers({'Content-Type': 'application/json'});
+  var myBody = { "selection": selection};
+  var myInit = {
+           method: 'POST',
+           headers: myHeaders,
+           body: JSON.stringify(myBody)
+         }
+
+  return fetch('http://localhost:8080/topics/' + id + '/vote', myInit)
+    .then(parseJSON => parseJSON.json())
+    .then(data => {
+      console.log("data ", data);
+    });
+}
+
 
 class TopicDetailPage extends Component {
-
-
-
   handleYesClick = () => {
-    this.props.history.push('/topics/'+this.props.topic.id+'/result');
+    postVote(this.props.topic.id, true)
+      .then(() => this.props.history.push('/topics/'+this.props.topic.id+'/result'));
+
   }
 
   handleNoClick = () => {
-    this.props.history.push('/topics/'+this.props.topic.id+'/result');
+    postVote(this.props.topic.id, false)
+      .then(() => this.props.history.push('/topics/'+this.props.topic.id+'/result'));
   }
 
   render(){
-    console.log("in da Detailpage", this.state);
     const {topic} = this.props;
-    console.log("in da TopicDetailPage", this.props);
     return (
       <div>
         <h1>{topic.text}</h1>
-        <button onClick = {this.handleYesClick}>
+        <button value={true} onTouchTap = {this.handleYesClick}>
           Yes
         </button>
-        <button onTouchTap = {this.handleNoClick}
+        <button value={false} onTouchTap = {this.handleNoClick}
           >No</button>
       </div>
     );
@@ -35,11 +49,7 @@ class TopicDetailPage extends Component {
 
 const mapStateToProps = (state, props) =>{
     const id = props.match.params.id;
-    console.log("detailpage: ", state.topicReducer);
     const myTopic = state.topicReducer.filter((topic) => topic.id == id)
-      // console.log("in da my topic ", topic, id);
-      // console.log(typeof topic.id);
-      //console.log("detailpage my topic", myTopic);
     return{
       topic: myTopic[0],
     }

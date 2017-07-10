@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ListItem from '../ListItem';
+import '../../style.css';
 
 
 
@@ -24,10 +25,9 @@ class TopicsList extends Component {
 
     return(
       <div>
-        <ul>
+        <ul className="TopicsList_List">
          {this.props.topics.map((topic) => {
             return <ListItem key={topic.id} topic={topic}/>
-
            })
          }
         </ul>

@@ -1,0 +1,49 @@
+body {
+/*background-color: #293950;*/
+}
+
+
+/* -- Navbar -- */
+
+.NavbarNavbar {
+  /*height: 100px !important;*/
+
+}
+
+.NavbarDropDown {}
+
+input {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.NavbarSearch {
+  margin-right: 30px;
+}
+
+.NavbarAdd {
+  margin-right: 20px;
+}
+
+.NavbarReorder {
+  margin-right: 40px;
+}
+
+
+/* -- TopicsList -- */
+
+.TopicsList_List {
+  margin-top: 50px;
+  display: inline-block;
+  text-align: left;
+}
+
+
+
+
+/* -- Bubbles -- */
+
+
+.ca, .us {fill: #DF4949;}
+.uc, .br, .mx {fill: #E27A3F;}
+.other {fill: #45B29D;}
