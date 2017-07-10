@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import TopicResult from '../../containers/TopicResult';
 
+
 class TopicsResultPage extends Component {
 
   render(){

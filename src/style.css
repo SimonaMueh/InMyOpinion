@@ -38,12 +38,11 @@ input {
   text-align: left;
 }
 
+/* -- Progress bar -- */
 
 
+.progress {
+  width: 300px !important;
+  height: 10px !important;
 
-/* -- Bubbles -- */
-
-
-.ca, .us {fill: #DF4949;}
-.uc, .br, .mx {fill: #E27A3F;}
-.other {fill: #45B29D;}
+}

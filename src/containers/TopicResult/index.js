@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import ProgressBar from '../../components/ProgressBar';
 
 class TopicResult extends Component {
 
@@ -9,7 +10,7 @@ class TopicResult extends Component {
     .then(data => {
       this.props.dispatch
       ({
-        type: 'GETTOPICS', 
+        type: 'GETTOPICS',
         topics: data
       })
     });
@@ -36,11 +37,10 @@ class TopicResult extends Component {
     });
     return (
       <div>
-        <ul>
-          total: {total}<br></br>
-          yes: {voteTrue}<br></br>
-          no: {voteFalse}
-        </ul>
+       <ProgressBar totalVotes={total} totalYes={voteTrue} totalNo={voteFalse}></ProgressBar>
+       total: {total}<br></br>
+       yes: {voteTrue}<br></br>
+       no: {voteFalse}
       </div>
     );
   }
