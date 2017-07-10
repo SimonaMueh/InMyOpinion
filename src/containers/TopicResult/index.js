@@ -7,7 +7,11 @@ class TopicResult extends Component {
     fetch('http://localhost:8080/topics')
     .then(parseJSON => parseJSON.json())
     .then(data => {
-      this.props.dispatch({type: 'GETTOPICS', topics: data})
+      this.props.dispatch
+      ({
+        type: 'GETTOPICS', 
+        topics: data
+      })
     });
   }
 

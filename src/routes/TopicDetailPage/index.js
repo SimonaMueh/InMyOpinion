@@ -14,7 +14,7 @@ const postVote = (id, selection) => {
   return fetch('http://localhost:8080/topics/' + id + '/vote', myInit)
     .then(parseJSON => parseJSON.json())
     .then(data => {
-      console.log("data ", data);
+      // console.log("data1", data);
     });
 }
 
@@ -48,7 +48,7 @@ class TopicDetailPage extends Component {
 
 
 const mapStateToProps = (state, props) =>{
-  console.log('indaMapStateToProps', this.props);
+  // console.log('indaMapStateToProps1', props);
     const id = props.match.params.id;
     const myTopic = state.topicReducer.filter((topic) => topic.id == id)
     return{
