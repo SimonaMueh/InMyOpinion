@@ -15,7 +15,11 @@ class SelectCategory extends Component {
     }
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+
+  handleChange = (event, index, value) => {
+    this.props.selectCategory(value + 1);
+    this.setState({value: value})
+  }
 
   render() {
     console.log('in da SelectField',this.props.categories);

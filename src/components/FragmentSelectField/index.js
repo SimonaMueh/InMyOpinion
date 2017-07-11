@@ -11,9 +11,14 @@ class SelectTextFragment extends Component {
     value: null,
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  // handleChange = (event, index, value) => this.setState({event, index, value});
+  handleChange = (event, index, value) => {
+    this.props.setFragment(value);
+    this.setState({value: value})
+  }
 
   render() {
+
     return (
       <div>
           <SelectField
@@ -22,9 +27,9 @@ class SelectTextFragment extends Component {
             onChange={this.handleChange}
             autoWidth={true}
           >
-            <MenuItem value={0} primaryText={"I like"}/>
-            <MenuItem value={1} primaryText={"I want to"}/>
-            <MenuItem value={2} primaryText={"I love"}/>
+            <MenuItem value={"I like"} primaryText={"I like"}/>
+            <MenuItem value={"I want to"} primaryText={"I want to"}/>
+            <MenuItem value={"I love"} primaryText={"I love"}/>
           </SelectField>
       </div>
     );

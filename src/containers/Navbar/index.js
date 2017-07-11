@@ -1,22 +1,17 @@
 import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import FlatButton from 'material-ui/FlatButton';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
-import qs from 'query-string';
 import '../../style.css';
 
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
-import TextField from 'material-ui/TextField';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import AddIcon from 'material-ui/svg-icons/content/add';
 import ReorderIcon from 'material-ui/svg-icons/action/reorder';
+import SelectField from 'material-ui/SelectField';
+
 
 const styles = {
   customWidth: {
@@ -26,16 +21,22 @@ const styles = {
 
 class Navbar extends Component {
 
+
+//topic filter should be in react
+//dispatch an action to the category filter instead of seting the state here
+//then the topics can be filtered
+
   constructor(props) {
     super(props);
     this.state = {
-      value: 1
+      value: null
     };
   }
 
   handleChange = (event, index, value) => this.setState({value});
-  handlePlusClick = () => this.props.history.push('/categories');
 
+  handlePlusClick = () => this.props.history.push('/createNew');
+// add all topics in SelectField
   render() {
     console.log('in da navbar', this.props);
     return (
@@ -43,10 +44,20 @@ class Navbar extends Component {
         <Toolbar className="NavbarNavbar">
           <ToolbarGroup firstChild={true}></ToolbarGroup>
           <ToolbarGroup>
-            <DropDownMenu className="NavbarDropDown" value={this.state.value} onChange={this.handleChange}>
-              <MenuItem value={1} primaryText="Select Category"/>
-              <MenuItem value={2} primaryText="Every Night"/>
-            </DropDownMenu>
+            <SelectField
+              floatingLabelText="Select Category"
+              value={this.state.value}
+              onChange={this.handleChange}
+              autoWidth={true}
+            >
+              <MenuItem value={ -1 } primaryText="all" />
+              {
+                this.props.categories.map((category, index) => {
+                  return <MenuItem key={category.id} value={index} primaryText={category.text}/>
+                })
+              }
+            </SelectField>
+
           </ToolbarGroup>
 
           <ToolbarGroup lastChild={true}>
@@ -66,9 +77,20 @@ class Navbar extends Component {
 
 
 //Maybe not needed
-const mapStateToProps = (state, props) =>{
-  console.log('indaMapStateToProps1', props);
-    return state.topicReducer;
-}
+// const mapStateToProps = (state, props) =>{
+//   console.log('indaMapStateToProps1', props);
+//     return state.topicReducer;
+// }
+
+const mapStateToProps = (state) => ({
+  categories: Object.values(state.categoryReducer),
+  topics: state.topicReducer,
+})
 
 export default connect(mapStateToProps)(withRouter(Navbar));
+
+
+// <DropDownMenu className="NavbarDropDown" value={this.state.value} onChange={this.handleChange}>
+//   <MenuItem value={1} primaryText="Select Category"/>
+//   <MenuItem value={2} primaryText="Every Night"/>
+// </DropDownMenu>

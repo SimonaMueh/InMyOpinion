@@ -3,6 +3,7 @@ import SelectCategory from '../../components/CategorySelectField';
 import SelectTextFragment from '../../components/FragmentSelectField';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {withRouter} from 'react-router-dom';
 
 
 class NewTopic extends Component {
@@ -10,23 +11,40 @@ class NewTopic extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      fragment: "",
       text: "",
       category: null
     };
   }
 
-handleCreateNewTopicClick = () => {console.log("hello new topic");}
+handleCreateNewTopicClick = () => {
+this.props.history.push('/createNew/ready' );
+}
+
+handleTextFragment = (fragment) => {
+  this.setState({fragment: fragment})
+}
+
+handleFieldInput = (event ,input) => {
+  this.setState({text: input})
+}
+
+handleCategory = (category) => {
+  this.setState({category: category})
+}
+
 
   render() {
+    console.log('in da NewTopic', this.state);
     return (
       <div>
-        <SelectTextFragment/>
-        <TextField hintText={"Enter your topic here..."}/>
-        <SelectCategory/>
-        <RaisedButton label="create new topic" onTouchTap = {this.handleCreateNewTopicClick}/>
+        <SelectTextFragment setFragment={this.handleTextFragment}/>
+        <TextField hintText={"Enter your topic here..."} onChange={this.handleFieldInput}/>
+        <SelectCategory selectCategory={this.handleCategory}/>
+        <RaisedButton label="create new topic" onTouchTap = {this.handleCreateNewTopicClick} />
       </div>
     );
   }
 }
 
-export default NewTopic;
+export default withRouter(NewTopic);

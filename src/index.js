@@ -12,6 +12,7 @@ import Home from './routes/Home';
 import TopicDetailPage from './routes/TopicDetailPage';
 import TopicResultPage from './routes/TopicResultPage';
 import NewTopicPage from './routes/NewTopicPage';
+import TopicReadyPage from './routes/TopicReadyPage';
 
 
 injectTapEventPlugin();
@@ -25,7 +26,8 @@ ReactDOM.render(
               <Route exact path="/" component={Home} />
               <Route exact path="/topics/:id" component={TopicDetailPage} />
               <Route exact path="/topics/:id/result" component={TopicResultPage} />
-              <Route exact path="/categories" component={NewTopicPage} />
+              <Route exact path="/createNew" component={NewTopicPage} />
+              <Route exact path="/createNew/ready" component={TopicReadyPage} />
             </Navbar>
         </Switch>
       </Router>
