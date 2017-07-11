@@ -34,7 +34,7 @@ class Navbar extends Component {
   }
 
   handleChange = (event, index, value) => this.setState({value});
-  handlePlusClick = () => this.props.history.push('/categories'); 
+  handlePlusClick = () => this.props.history.push('/categories');
 
   render() {
     console.log('in da navbar', this.props);

@@ -4,18 +4,6 @@ import ProgressBar from '../../components/ProgressBar';
 
 class TopicResult extends Component {
 
-  componentDidMount() {
-    fetch('http://localhost:8080/topics')
-    .then(parseJSON => parseJSON.json())
-    .then(data => {
-      this.props.dispatch
-      ({
-        type: 'GETTOPICS',
-        topics: data
-      })
-    });
-  }
-
   render() {
     const topic = this.props.topics[this.props.paramsId - 1];
     const total = topic.votes.length;

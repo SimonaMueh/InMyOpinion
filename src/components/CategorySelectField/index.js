@@ -7,21 +7,12 @@ import MenuItem from 'material-ui/MenuItem';
 
 
 class SelectCategory extends Component {
-  componentDidMount(){
-      fetch('http://localhost:8080/categories')
-      .then(parseJSON => parseJSON.json())
-      .then(data => {
-      // console.log('in da componentDidMount' ,data);
-        this.props.dispatch({
-          type: 'GETCATEGORIES',
-          categories: data,
-        })
-      });
-      console.log(this.props);
-  }
 
-  state = {
-    value: null,
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    }
   };
 
   handleChange = (event, index, value) => this.setState({value});
@@ -35,7 +26,6 @@ class SelectCategory extends Component {
             value={this.state.value}
             onChange={this.handleChange}
             autoWidth={true}
-            hintTExt={"select Category"}
           >
             {
               this.props.categories.map((category, index) => {
