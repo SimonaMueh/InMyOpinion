@@ -2,32 +2,39 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 
-const postVote = (id, selection) => {
-  var myHeaders = new Headers({'Content-Type': 'application/json'});
-  var myBody = { "selection": selection};
-  var myInit = {
-           method: 'POST',
-           headers: myHeaders,
-           body: JSON.stringify(myBody)
-         }
 
-  return fetch('http://localhost:8080/topics/' + id + '/vote', myInit)
-    .then(parseJSON => parseJSON.json())
-    .then(data => {
-      // console.log("data1", data);
-    });
-}
 
 
 class TopicDetailPage extends Component {
+
+  postVote = (id, selection) => {
+    var myHeaders = new Headers({'Content-Type': 'application/json'});
+    var myBody = { "selection": selection};
+    var myInit = {
+             method: 'POST',
+             headers: myHeaders,
+             body: JSON.stringify(myBody)
+           }
+
+    return fetch('http://localhost:8080/topics/' + id + '/vote', myInit)
+      .then(parseJSON => parseJSON.json())
+      .then(data => {
+        this.props.dispatch({
+          type: 'VOTEFORTOPIC',
+          topicID: id,
+          voteSelection: selection,
+        })
+      });
+  }
+
   handleYesClick = () => {
-    postVote(this.props.topic.id, true)
+    this.postVote(this.props.topic.id, true)
       .then(() => this.props.history.push('/topics/'+this.props.topic.id+'/result'));
 
   }
 
   handleNoClick = () => {
-    postVote(this.props.topic.id, false)
+    this.postVote(this.props.topic.id, false)
       .then(() => this.props.history.push('/topics/'+this.props.topic.id+'/result'));
   }
 

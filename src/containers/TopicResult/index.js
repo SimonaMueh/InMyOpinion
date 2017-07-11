@@ -5,7 +5,14 @@ import ProgressBar from '../../components/ProgressBar';
 class TopicResult extends Component {
 
   render() {
-    const topic = this.props.topics[this.props.paramsId - 1];
+    let myId;
+    for (var i = 0; i < this.props.topics.length; i++) {
+      if (this.props.topics[i].id === parseInt(this.props.paramsId)) {
+        myId=i;
+      }
+    }
+
+    const topic = this.props.topics[myId];
     const total = topic.votes.length;
 
     let voteTrue = 0;

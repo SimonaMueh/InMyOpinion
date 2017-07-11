@@ -38,7 +38,6 @@ const mapStateToProps = (state) => {
   return({
     topics: state.topicReducer
   })
-  console.log('in da mapStateToProps', state);
 }
 
 export default connect(mapStateToProps)(TopicsList);

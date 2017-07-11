@@ -6,6 +6,26 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {withRouter} from 'react-router-dom';
 
 
+const postTopic = (fragment, text, category) => {
+  var myHeaders = new Headers({'Content-Type': 'application/json'});
+  var myBody = {
+    "text": fragment + " " + text,
+    "category": category
+  };
+  var myInit = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(myBody)
+  }
+
+  return fetch('http://localhost:8080/categories/' + myBody.category + '/topic', myInit)
+  .then(parseJSON => parseJSON.json()).then(data => {
+  });
+
+}
+
+console.log('in da NewTopic', this.state);
+
 class NewTopic extends Component {
 
   constructor(props) {
@@ -17,8 +37,11 @@ class NewTopic extends Component {
     };
   }
 
+
 handleCreateNewTopicClick = () => {
-this.props.history.push('/createNew/ready' );
+  postTopic(this.state.fragment, this.state.text, this.state.category)
+    .then(() => this.props.history.push('/createNew/ready' ));
+
 }
 
 handleTextFragment = (fragment) => {

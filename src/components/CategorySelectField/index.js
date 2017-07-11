@@ -17,7 +17,7 @@ class SelectCategory extends Component {
 
 
   handleChange = (event, index, value) => {
-    this.props.selectCategory(value + 1);
+    this.props.selectCategory(value);
     this.setState({value: value})
   }
 
@@ -32,8 +32,8 @@ class SelectCategory extends Component {
             autoWidth={true}
           >
             {
-              this.props.categories.map((category, index) => {
-                return <MenuItem key={category.id} value={index} primaryText={category.text}/>
+              this.props.categories.map((category) => {
+                return <MenuItem key={category.id} value={category.id} primaryText={category.text}/>
               })
             }
           </SelectField>
@@ -43,8 +43,12 @@ class SelectCategory extends Component {
 }
 
 
+
 const mapStateToProps = (state) => ({
   categories: Object.values(state.categoryReducer),
 });
 
 export default connect(mapStateToProps)(SelectCategory);
+
+// this.props.categories.map((category, index) => {
+//   return <MenuItem key={category.id} value={index} primaryText={category.text}/>

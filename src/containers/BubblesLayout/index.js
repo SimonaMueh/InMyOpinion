@@ -35,7 +35,6 @@ class BubblesLayout extends Component {
 
     return (
         <div className='example'>
-          <h4>Example 3 - External Data Points</h4>
           <VisExample3 width={400} height={200} data={data} />
       </div>
     );

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import d3 from 'd3';
 
+// refactor this the same way as the Bubbles Layout
+// return points is in the state
 
 const VisExample3 = React.createClass({
   propTypes: {

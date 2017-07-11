@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 
 
-
 class TopicReadyPage extends Component {
   render() {
     return (

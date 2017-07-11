@@ -6,7 +6,7 @@ const categoryReducer = (state = {}, action) => {
         acc[category.id] = category;
         return acc;
       }, {});
-      return Object.assign({}, state, newState);
+      return Object.assign({}, newState);
     default:
       return state;
   }

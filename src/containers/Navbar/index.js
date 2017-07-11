@@ -50,10 +50,10 @@ class Navbar extends Component {
               onChange={this.handleChange}
               autoWidth={true}
             >
-              <MenuItem value={ -1 } primaryText="all" />
+              <MenuItem value={0} primaryText="all" />
               {
-                this.props.categories.map((category, index) => {
-                  return <MenuItem key={category.id} value={index} primaryText={category.text}/>
+                this.props.categories.map((category) => {
+                  return <MenuItem key={category.id} value={category.id} primaryText={category.text}/>
                 })
               }
             </SelectField>
