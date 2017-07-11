@@ -21,8 +21,6 @@ class TopicsList extends Component {
   }
 
   render(){
-    console.log('in da render', this.props);
-
     return(
       <div>
         <ul className="TopicsList_List">

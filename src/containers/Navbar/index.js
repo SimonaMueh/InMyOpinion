@@ -34,15 +34,17 @@ class Navbar extends Component {
   }
 
   handleChange = (event, index, value) => this.setState({value});
+  handlePlusClick = () => this.props.history.push('/categories'); 
 
   render() {
+    console.log('in da navbar', this.props);
     return (
       <div >
         <Toolbar className="NavbarNavbar">
           <ToolbarGroup firstChild={true}></ToolbarGroup>
           <ToolbarGroup>
             <DropDownMenu className="NavbarDropDown" value={this.state.value} onChange={this.handleChange}>
-              <MenuItem value={1} primaryText="Category: show all"/>
+              <MenuItem value={1} primaryText="Select Category"/>
               <MenuItem value={2} primaryText="Every Night"/>
             </DropDownMenu>
           </ToolbarGroup>
@@ -52,18 +54,21 @@ class Navbar extends Component {
               <input placeholder="find a topic" onChange={this.handleSearch} value={this.state.query}/>
             </form>
             <SearchIcon className="NavbarSearch"/>
-            <AddIcon className="NavbarAdd"/>
+            <AddIcon className="NavbarAdd" onTouchTap = {this.handlePlusClick}/>
             <ReorderIcon className="NavbarReorder"/>
           </ToolbarGroup>
         </Toolbar>
-
-        <div>
-          {this.props.children}
-        </div>
-
+        {this.props.children}
       </div>
     );
   }
 }
 
-export default connect()(Navbar);
+
+//Maybe not needed
+const mapStateToProps = (state, props) =>{
+  console.log('indaMapStateToProps1', props);
+    return state.topicReducer;
+}
+
+export default connect(mapStateToProps)(withRouter(Navbar));

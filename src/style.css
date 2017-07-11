@@ -34,8 +34,8 @@ input {
 
 .TopicsList_List {
   margin-top: 50px;
-  display: inline-block;
-  text-align: left;
+  /*display: inline-block;*/
+  /*text-align: left;*/
 }
 
 /* -- Progress bar -- */
