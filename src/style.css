@@ -46,3 +46,10 @@ input {
   height: 10px !important;
 
 }
+
+
+/* -- Bubbles Layout --*/
+
+.BubblesLayout_Background{
+  background-color: tomato;
+}

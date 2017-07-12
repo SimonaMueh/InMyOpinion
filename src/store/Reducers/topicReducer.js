@@ -3,11 +3,10 @@
 const topicReducer = (state = [], action) => {
   switch (action.type) {
     case 'GETTOPICS':
-      let newState = [...action.topics];
-      console.log('in da newState',newState);
-      return newState;
+      return [...action.topics];
+      // console.log('in da newState',newState);
     case 'VOTEFORTOPIC':
-      newState = Object.assign([], state);
+     let  newState = Object.assign([], state);
       let myId;
       for (var i = 0; i < newState.length; i++) {
         if (newState[i].id === action.topicID) {
@@ -16,6 +15,8 @@ const topicReducer = (state = [], action) => {
       }
       newState[myId].votes.push({selection:action.voteSelection});
       return newState;
+    case 'ADDTOPIC':
+      return [...state, action.topic];
     default:
       return state;
   }

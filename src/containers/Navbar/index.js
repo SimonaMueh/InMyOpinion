@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 import '../../style.css';
 
 
 import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import AddIcon from 'material-ui/svg-icons/content/add';
 import ReorderIcon from 'material-ui/svg-icons/action/reorder';

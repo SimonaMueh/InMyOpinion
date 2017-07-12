@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 
-
-
-
 class TopicDetailPage extends Component {
 
   postVote = (id, selection) => {
@@ -18,7 +15,7 @@ class TopicDetailPage extends Component {
 
     return fetch('http://localhost:8080/topics/' + id + '/vote', myInit)
       .then(parseJSON => parseJSON.json())
-      .then(data => {
+      .then(data => { console.log('in da postVote!!!', data);
         this.props.dispatch({
           type: 'VOTEFORTOPIC',
           topicID: id,
@@ -40,6 +37,7 @@ class TopicDetailPage extends Component {
 
   render(){
     const {topic} = this.props;
+    console.log(topic);
     return (
       <div>
         <h1>{topic.text}</h1>
@@ -55,7 +53,7 @@ class TopicDetailPage extends Component {
 
 
 const mapStateToProps = (state, props) =>{
-  // console.log('indaMapStateToProps1', props);
+  console.log('indaMapStateToProps1', state);
     const id = props.match.params.id;
     const myTopic = state.topicReducer.filter((topic) => topic.id == id)
     return{
