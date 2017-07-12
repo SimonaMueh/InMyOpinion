@@ -3,13 +3,15 @@ import VisExample3 from '../../components/Bubbles'
 // import ReactDOM from 'react-dom';
 import * as d3 from "d3";
 import {connect} from 'react-redux';
+
 import '../../style.css';
 
 class BubblesLayout extends Component{
 
   render(){
+
     return(
-      <div className="BubblesLayout_Background" width={1000} height={500}></div>
+      <div>Bubbles</div>
     )
   }
 

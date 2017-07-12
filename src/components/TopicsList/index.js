@@ -23,12 +23,10 @@ class TopicsList extends Component {
   render(){
     return(
       <div>
-        <ul className="TopicsList_List">
          {this.props.topics.map((topic) => {
-            return <ListItem key={topic.id} topic={topic}/>
+            return  <ListItem key={topic.id} topic={topic}/>
            })
          }
-        </ul>
       </div>
     );
   }
@@ -41,3 +39,13 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(TopicsList);
+
+
+
+
+// <ul className="TopicsList_List">
+//  {this.props.topics.map((topic) => {
+//     return  <ListItem key={topic.id} topic={topic}/>
+//    })
+//  }
+// </ul>

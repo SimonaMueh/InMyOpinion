@@ -8,6 +8,8 @@ import MenuItem from 'material-ui/MenuItem';
 
 class SelectCategory extends Component {
 
+  //fetch categories again here 
+
   constructor(props) {
     super(props);
     this.state = {

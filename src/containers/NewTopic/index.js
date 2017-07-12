@@ -82,7 +82,7 @@ const mapStateToProps = (state, props) =>{
   console.log('indaMapStateToPropsNewTopic', state);
 
     return{
-      topics: state.topicReducer
+      topics: state.topicReduce,
     }
 
 

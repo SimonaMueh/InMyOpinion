@@ -50,6 +50,23 @@ input {
 
 /* -- Bubbles Layout --*/
 
-.BubblesLayout_Background{
-  background-color: tomato;
+.bubblesLayout_Background {
+  width: 1000px;
+  height: 500px;
+  background-color: peachpuff;
+}
+
+.circle {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  line-height: 200px;
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  border-radius: 100%;
+
+
+
+
 }
