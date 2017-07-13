@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TopicsList from '../../components/TopicsList';
+
 import {connect} from 'react-redux';
 import BubblesLayout from '../../containers/BubblesLayout';
 
@@ -21,7 +21,6 @@ class Home extends Component{
   render(){
     return(
       <div>
-        <TopicsList/>
         <BubblesLayout/>
       </div>
     );
