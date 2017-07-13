@@ -4,7 +4,7 @@ const topicReducer = (state = [], action) => {
   switch (action.type) {
     case 'GETTOPICS':
       return [...action.topics];
-      // console.log('in da newState',newState);
+      //console.log('in da newState',newState);
     case 'VOTEFORTOPIC':
      let  newState = Object.assign([], state);
       let myId;

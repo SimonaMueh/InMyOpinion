@@ -40,12 +40,19 @@ class TopicDetailPage extends Component {
     console.log(topic);
     return (
       <div>
-        <h1>{topic.text}</h1>
+      <div className="TopicDetailPage_Container">
+        <div>
+        <h1 className="TopicDetailPage_Header">{topic.text}</h1>
+        </div>
+      </div>
+      <div className="buttons">
         <button value={true} onTouchTap = {this.handleYesClick}>
           Yes
         </button>
-        <button value={false} onTouchTap = {this.handleNoClick}
-          >No</button>
+        <button value={false} onTouchTap = {this.handleNoClick}>
+          No
+        </button>
+      </div>
       </div>
     );
   }

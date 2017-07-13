@@ -23,6 +23,7 @@ class SelectTextFragment extends Component {
       <div>
           <SelectField
             floatingLabelText="Select text fragment"
+            floatingLabelStyle={{color: 'white'}}
             value={this.state.value}
             onChange={this.handleChange}
             autoWidth={true}

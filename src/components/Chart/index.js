@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import BubbleChart from "../BubbleChart";
 
 
+
 class Chart extends React.Component {
     constructor(props) {
         super(props);

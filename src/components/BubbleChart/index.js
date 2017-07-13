@@ -1,17 +1,140 @@
 import * as d3 from "d3";
 import BaseChart from "../BaseChart";
-import {Link, withRouter} from 'react-router-dom';
+import '../../style.css';
+
 
 
 export default class BubbleChart extends BaseChart {
-    addText() {
-        this.text = this.node.append("text")
-            .attr("dy", ".3em")
-            .attr("class", "bubble-text")
-            .style("text-anchor", "middle")
-            .style("pointer-events", "none")
-            .text(this.setText);
-    }
+
+        // original
+        // addText() {
+        //     this.text = this.node.append("text")
+        //         .attr("dy", ".3em")
+        //         .attr("class", "bubble-text")
+        //         .style("text-anchor", "middle")
+        //         .style("pointer-events", "none")
+        //          .text(this.setText);
+        // }
+
+
+
+      addText() {
+          this.text = this.node.append("text")
+              .attr("dy", "-0.3em")
+              .attr("class", "bubble-text")
+              .style("text-anchor", "middle")
+              .style("pointer-events", "none")
+              .style("font-size", function(d) {
+                     let len = d.data.name.substring(0, d.r / 3).length;
+                     let size = d.r/3;
+                     size *= 10 / len;
+                     size += 1;
+                     return Math.round(size)+'px';
+               })
+              .text(function(d) {
+                       let text = d.data.name;
+                       let pos = text.indexOf(' ', text.length / 2);
+                       if(pos < text.length / 2 + 5) {
+                          text = text.substring(0, pos);
+                       }
+                    return text;
+                })
+
+               this.text = this.node.append("text")
+                   .attr("dy", "0.9em")
+                   .attr("class", "bubble-text")
+                   .style("text-anchor", "middle")
+                   .style("pointer-events", "none")
+                   //custom text from here ----
+                   .style("font-size", function(d) {
+                          let len = d.data.name.substring(0, d.r / 3).length;
+                          let size = d.r/3;
+                          size *= 10 / len;
+                          size += 1;
+                          return Math.round(size)+'px';
+                    })
+                   .text(function(d) {
+                          let text = d.data.name;
+                          let pos = text.indexOf(' ', text.length / 2);
+                          if(pos < text.length / 2 + 5) {
+                             text = text.substring(pos+1);
+                          }
+                          return text;
+                      })
+
+            }
+
+
+      // addText() {
+      //
+      //     console.log('in da addText', this.node);
+      //     this.text = this.node.append("text")
+      //         .attr("class", "bubble-text")
+      //         .style("pointer-events", "none")
+      //         .call(wrap, 300)
+      //         .text(this.setText);
+      //
+      //
+      //         console.log(this.text);
+      //
+      //
+      //     function wrap(text, width) {
+      //       text.each(function() {
+      //         var text = d3.select(this),
+      //             words = text.text().split(/\s+/).reverse(),
+      //             word,
+      //             line = [],
+      //             lineNumber = 0,
+      //             lineHeight = 1.1, // ems
+      //             y = text.attr("y"),
+      //             dy = parseFloat(text.attr("dy")),
+      //             tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+      //                 console.log(' in da wrap, text',this)
+      //         while (word = words.pop()) {
+      //           line.push(word);
+      //           tspan.text(line.join(" "));
+      //           if (tspan.node().getComputedTextLength() > width) {
+      //             line.pop();
+      //             tspan.text(line.join(" "));
+      //             line = [word];
+      //             tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      //           }
+      //         }
+      //       });
+      //     }
+      // }
+
+
+    // addText() {
+    //     this.text = this.node.append("text")
+    //         .attr("dy", ".3em")
+    //         .attr("class", "bubble-text")
+    //         .style("text-anchor", "middle")
+    //         .style("pointer-events", "none")
+    //         //custom text from here ----
+    //         .style("font-size", function(d) {
+    //                let len = d.data.name.substring(0, d.r / 3).length;
+    //                let size = d.r/3;
+    //                size *= 10 / len;
+    //                size += 1;
+    //                return Math.round(size)+'px';
+    //          })
+    //          .text(function(d) {
+    //                 let text = d.data.name;
+    //             // //  var text = d.data.name.substring(0, d.r / 3);
+    //             //     console.log(text.indexOf(' ', text.length / 2));
+    //             //     let pos = text.indexOf(' ', text.length / 2);
+    //             //     if(pos < text.length / 2 + 5) {
+    //             //        text = text.substring(0, pos) + "\n" + text.substring(pos+1);
+    //             //        console.log(text);
+    //             //     }
+    //
+    //              return text;
+    //          })
+    //          //custom text until here----
+    //          //  original text attribute
+    //          // .text(this.setText);
+    // }
 
     setText(node) {
         if (node.data.value > 0) { return node.data.name; }
@@ -30,6 +153,7 @@ export default class BubbleChart extends BaseChart {
     }
 
     onClick(node) {
+        console.log('in da onClick', node.data.name.substring);
        this.props.history.push( '/topics/'+node.data.topicId);
     }
 
@@ -44,6 +168,8 @@ export default class BubbleChart extends BaseChart {
             .attr("width", this.props.diameter)
             .attr("height", this.props.diameter)
             .attr("class", "bubble");
+
+
 
         this.node = this.svg.selectAll(".node")
             .data(this.bubble(this.root).children)

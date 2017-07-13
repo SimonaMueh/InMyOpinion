@@ -35,16 +35,19 @@ class Navbar extends Component {
   handleChange = (event, index, value) => this.setState({value});
 
   handlePlusClick = () => this.props.history.push('/createNew');
-// add all topics in SelectField
+  handleGoHome = () => this.props.history.push('/');
+
+
   render() {
     console.log('in da navbar', this.props);
     return (
       <div >
         <Toolbar className="NavbarNavbar">
-          <ToolbarGroup firstChild={true}></ToolbarGroup>
+          <ToolbarGroup className="NavbarAppTitle" firstChild={true} onTouchTap = {this.handleGoHome} >InMyOpinion.</ToolbarGroup>
           <ToolbarGroup>
             <SelectField
               floatingLabelText="Select Category"
+              floatingLabelStyle={{color: 'white'}}
               value={this.state.value}
               onChange={this.handleChange}
               autoWidth={true}

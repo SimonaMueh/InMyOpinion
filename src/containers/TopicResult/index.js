@@ -32,10 +32,14 @@ class TopicResult extends Component {
     });
     return (
       <div>
-       <ProgressBar totalVotes={total} totalYes={voteTrue} totalNo={voteFalse}></ProgressBar>
-       total: {total}<br></br>
-       yes: {voteTrue}<br></br>
-       no: {voteFalse}
+        <div className="TopicResultContainer">
+          <ProgressBar totalVotes={total} totalYes={voteTrue} totalNo={voteFalse}></ProgressBar>
+        </div>
+        <div className="TopicResultText">
+          Total: {total}<br></br>
+          Yes: {voteTrue}<br></br>
+          No: {voteFalse}
+        </div>
       </div>
     );
   }

@@ -8,7 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 class SelectCategory extends Component {
 
-  //fetch categories again here 
+  //fetch categories again here
 
   constructor(props) {
     super(props);
@@ -29,6 +29,7 @@ class SelectCategory extends Component {
       <div>
           <SelectField
             floatingLabelText="Select Category"
+            floatingLabelStyle={{color: 'white'}}
             value={this.state.value}
             onChange={this.handleChange}
             autoWidth={true}

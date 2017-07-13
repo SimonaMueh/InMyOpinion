@@ -26,7 +26,7 @@ export default class BaseChart {
 
     // Overwrite this function to apply your own color scheme
     getColor() {
-        return d3.scaleOrdinal(d3.schemeCategory20c);
+        return d3.scaleOrdinal(d3.schemeCategory10);
     }
 
     // We don't show tooltips by default

@@ -1,32 +1,55 @@
 body {
-/*background-color: #293950;*/
+background-color: #293950;
+/*font-family: 'Merriweather Sans', sans-serif;*/
+
 }
 
 
 /* -- Navbar -- */
 
 .NavbarNavbar {
-  /*height: 100px !important;*/
-
+  height: 6em !important;
+  background-color: #293950 !important;
 }
 
-.NavbarDropDown {}
+.NavbarAppTitle{
+
+  font-family: 'Abril Fatface', cursive;
+  /*font-family: 'Lobster', cursive;*/
+  /*font-family: 'Oswald', sans-serif;*/
+  /*font-family: 'Lobster Two', cursive;*/
+  /*font-family: 'Stardos Stencil', cursive;*/
+  /*font-family: 'Fjalla One', sans-serif;*/
+  /*font-family: 'Karla', sans-serif;*/
+  /*font-family: 'Yeseva One', cursive;*/
+  font-size: 40px;
+  margin-left: 1em !important;
+  color: white;
+  cursor: pointer;
+}
+
+.NavbarDropDown {
+}
 
 input {
   height: 20px;
   margin-right: 10px;
+
 }
 
 .NavbarSearch {
   margin-right: 30px;
+  color: white !important;
 }
 
 .NavbarAdd {
   margin-right: 20px;
+  color: white !important;
 }
 
 .NavbarReorder {
   margin-right: 40px;
+  color: white !important;
 }
 
 
@@ -38,35 +61,66 @@ input {
   /*text-align: left;*/
 }
 
-/* -- Progress bar -- */
 
-
-.progress {
-  width: 300px !important;
-  height: 10px !important;
-
-}
 
 
 /* -- Bubbles Layout --*/
 
-.bubblesLayout_Background {
-  width: 1000px;
-  height: 500px;
-  background-color: peachpuff;
+.chart {
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.circle {
+/* -- Topic Details Page --*/
+
+.TopicDetailPage_Container{
+  margin-top: 200px;
   position: relative;
-  display: inline-block;
-  text-align: center;
-  line-height: 200px;
-  width: 200px;
-  height: 200px;
-  background-color: pink;
-  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.TopicDetailPage_Header{
+  color: white;
+}
+
+.buttons {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+/* -- TopicResult --*/
+
+.TopicResultContainer {
+  margin-top: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.TopicResultText {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+/* -- NewTopic --*/
 
 
 
+/* -- Progress bar -- */
+
+
+.progress {
+  width: 400px !important;
+  height: 20px !important;
 
 }
