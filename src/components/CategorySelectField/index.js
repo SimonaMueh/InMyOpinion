@@ -24,25 +24,27 @@ class SelectCategory extends Component {
     this.setState({value: value})
   }
 
-  render() {
-    console.log('in da SelectField',this.props.categories);
-    return (
-      <div>
-          <SelectField
-            value={this.state.value}
-            onChange={this.handleChange}
-            autoWidth={true}
-          >
-            {
-              this.props.categories.map((category) => {
-                return <MenuItem key={category.id} value={category.id} primaryText={category.text}/>
-              })
-            }
-          </SelectField>
-      </div>
-    );
+    render() {
+      console.log('in da SelectField',this.props.categories);
+      return (
+        <div>
+            <SelectField
+              floatingLabelText="Select Category"
+              floatingLabelStyle={{color: 'white'}}
+              value={this.state.value}
+              onChange={this.handleChange}
+              autoWidth={true}
+            >
+              {
+                this.props.categories.map((category) => {
+                  return <MenuItem key={category.id} value={category.id} primaryText={category.text}/>
+                })
+              }
+            </SelectField>
+        </div>
+      );
+    }
   }
-}
 
 
 
@@ -52,8 +54,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps)(SelectCategory);
 
-// this.props.categories.map((category, index) => {
-//   return <MenuItem key={category.id} value={index} primaryText={category.text}/>
 
 //   render() {
 //     console.log('in da SelectField',this.props.categories);

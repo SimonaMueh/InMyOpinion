@@ -29,7 +29,7 @@ class SelectTextFragment extends Component {
             onChange={this.handleChange}
             autoWidth={true}
           >
-            <MenuItem value={"I like"} primaryText={"I like"}/>
+            <MenuItem value={"I like"} primaryText={"I like"} />
             <MenuItem value={"I want to"} primaryText={"I want to"}/>
             <MenuItem value={"I love"} primaryText={"I love"}/>
           </SelectField>

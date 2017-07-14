@@ -1,8 +1,7 @@
 body {
 background-color: #293950;
 /*font-family: 'Frank Ruhl Libre', sans-serif;*/
-font-family: 'Abril Fatface', cursive;
-
+/*font-family: 'Abril Fatface', cursive;*/
 
 
 }
@@ -81,6 +80,7 @@ input {
 
 .node{
   cursor: pointer;
+  font-family: 'Abril Fatface', cursive;
 }
 
 /* -- Topic Details Page --*/
@@ -94,6 +94,7 @@ input {
 }
 
 .TopicDetailPage_Header{
+    font-family: 'Abril Fatface', cursive;
   color: white;
 }
 

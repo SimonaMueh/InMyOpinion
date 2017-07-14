@@ -16,6 +16,7 @@ const topicReducer = (state = [], action) => {
       newState[myId].votes.push({selection:action.voteSelection});
       return newState;
     case 'ADDTOPIC':
+      console.log('ADDTOPIC', action);
       return [...state, action.topic];
     default:
       return state;

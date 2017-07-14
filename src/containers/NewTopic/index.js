@@ -14,7 +14,8 @@ postTopic(fragment, text, category) {
     var myHeaders = new Headers({'Content-Type': 'application/json'});
     var myBody = {
       "text": fragment + " " + text,
-      "category": category
+      "category": category,
+
     };
     var myInit = {
       method: 'POST',
@@ -24,9 +25,9 @@ postTopic(fragment, text, category) {
 
     return fetch('http://localhost:8080/categories/' + myBody.category + '/topic', myInit)
     .then(parseJSON => parseJSON.json()).then(data => {
-      console.log('in da postTopic', data);
       // console.log('in da postTopic', this.props.topics);
       // updating Redux state
+      data.fragment = fragment;
       this.props.dispatch({
         type: 'ADDTOPIC',
         topic: data,

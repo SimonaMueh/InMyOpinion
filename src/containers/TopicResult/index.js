@@ -14,6 +14,7 @@ class TopicResult extends Component {
 
     const topic = this.props.topics[myId];
     const total = topic.votes.length;
+    const fragment = this.props.topics[myId].fragment;
 
     let voteTrue = 0;
     const countTrue = topic.votes.filter((vote) => {
@@ -30,15 +31,46 @@ class TopicResult extends Component {
       }
       return voteFalse;
     });
+
+    // const negative = {
+    //   "I love": "don't love",
+    //   "I like": "don't like",
+    //   "I want to": "don't want to"
+    // }
+    //
+    // const positive = {
+    //   "I love": "love",
+    //   "I like": "like",
+    //   "I want to": "want to"
+    // }
+
+
+    const getBiggerResult = () => {
+      let result;
+      if(topic.text.match(/^(I love)/)) {
+        result =  voteTrue > voteFalse ? `${voteTrue} out of ${total} love ${topic.text.substring(6)}!` :
+        `${voteFalse} out of ${total} do not love ${topic.text.substring(6)}!`
+      }
+      if(topic.text.match(/^(I like)/)) {
+        result =  voteTrue > voteFalse ? `${voteTrue} out of ${total} like ${topic.text.substring(6)}!` :
+        `${voteFalse} out of ${total} do not like ${topic.text.substring(6)}!`
+      }
+      if(topic.text.match(/^(I want to)/)) {
+        result =  voteTrue > voteFalse ? `${voteTrue} out of ${total} want to ${topic.text.substring(9)}!` :
+        `${voteFalse} out of ${total} do not want to ${topic.text.substring(9)}!`
+      }
+
+      return result;
+
+    }
+
     return (
       <div>
         <div className="TopicResultContainer">
           <ProgressBar totalVotes={total} totalYes={voteTrue} totalNo={voteFalse}></ProgressBar>
         </div>
         <div className="TopicResultText">
-          Total: {total}<br></br>
-          Yes: {voteTrue}<br></br>
-          No: {voteFalse}
+          {getBiggerResult()}
         </div>
       </div>
     );
@@ -50,3 +82,19 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(TopicResult);
+
+
+// return (
+//   <div>
+//     <div className="TopicResultContainer">
+//       <ProgressBar totalVotes={total} totalYes={voteTrue} totalNo={voteFalse}></ProgressBar>
+//     </div>
+//     <div className="TopicResultText">
+//       Total: {total}<br></br>
+//       Yes: {voteTrue}<br></br>
+//       No: {voteFalse}
+//     </div>
+//   </div>
+// );
+// }
+// }

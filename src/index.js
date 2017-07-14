@@ -5,6 +5,8 @@ import './index.css';
 import {Provider} from 'react-redux';
 import store from './store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './containers/Navbar';
@@ -18,7 +20,7 @@ import TopicReadyPage from './routes/TopicReadyPage';
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <MuiThemeProvider>
+  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
     <Provider store={store}>
       <Router>
         <Switch>
