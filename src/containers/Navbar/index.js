@@ -11,12 +11,12 @@ import AddIcon from 'material-ui/svg-icons/content/add';
 import ReorderIcon from 'material-ui/svg-icons/action/reorder';
 import SelectField from 'material-ui/SelectField';
 
-
-const styles = {
-  customWidth: {
-    width: 250
-  }
-};
+// 
+// const styles = {
+//   customWidth: {
+//     width: 250
+//   }
+// };
 
 class Navbar extends Component {
 

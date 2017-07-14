@@ -1,6 +1,9 @@
 body {
 background-color: #293950;
-/*font-family: 'Merriweather Sans', sans-serif;*/
+/*font-family: 'Frank Ruhl Libre', sans-serif;*/
+font-family: 'Abril Fatface', cursive;
+
+
 
 }
 
@@ -22,7 +25,7 @@ background-color: #293950;
   /*font-family: 'Fjalla One', sans-serif;*/
   /*font-family: 'Karla', sans-serif;*/
   /*font-family: 'Yeseva One', cursive;*/
-  font-size: 40px;
+  font-size: 2.5em;
   margin-left: 1em !important;
   color: white;
   cursor: pointer;
@@ -40,16 +43,19 @@ input {
 .NavbarSearch {
   margin-right: 30px;
   color: white !important;
+  cursor: pointer;
 }
 
 .NavbarAdd {
   margin-right: 20px;
   color: white !important;
+  cursor: pointer;
 }
 
 .NavbarReorder {
   margin-right: 40px;
   color: white !important;
+  cursor: pointer;
 }
 
 
@@ -71,6 +77,10 @@ input {
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+.node{
+  cursor: pointer;
 }
 
 /* -- Topic Details Page --*/
@@ -114,6 +124,65 @@ input {
 
 /* -- NewTopic --*/
 
+.NewTopicContainer{
+  margin-top: 150px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.newTopicLine1{
+
+
+
+}
+.newTopicLine2{
+  margin-top: 1.5em;
+
+}
+
+.newTopicLine3{
+
+}
+.newTopicButton{
+  margin-top: 3em;
+
+}
+
+/* -- Topic Ready -- */
+
+
+
+.topicReadyContainer{
+  margin-top: 150px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+.topicReadyYourTopic{
+
+}
+
+.topicReadyTopicText{
+   margin-top: 1em;
+   font-family: 'Abril Fatface', cursive;
+   font-size: 3em;
+}
+.topicReadyCreated{
+   margin-top: 2em;
+}
+
+.topicReadySaveToken{
+  margin-top: 4em;
+}
+
+.topicReadyToken{
+  margin-top: 0.5em;
+}
 
 
 /* -- Progress bar -- */

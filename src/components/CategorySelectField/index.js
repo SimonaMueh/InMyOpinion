@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SelectField from 'material-ui/SelectField';
 import {connect} from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
+import AutoComplete from 'material-ui/AutoComplete';
 
 
 
@@ -28,8 +29,6 @@ class SelectCategory extends Component {
     return (
       <div>
           <SelectField
-            floatingLabelText="Select Category"
-            floatingLabelStyle={{color: 'white'}}
             value={this.state.value}
             onChange={this.handleChange}
             autoWidth={true}
@@ -55,3 +54,25 @@ export default connect(mapStateToProps)(SelectCategory);
 
 // this.props.categories.map((category, index) => {
 //   return <MenuItem key={category.id} value={index} primaryText={category.text}/>
+
+//   render() {
+//     console.log('in da SelectField',this.props.categories);
+//     return (
+//       <div>
+//           <SelectField
+//             floatingLabelText="Select Category"
+//             floatingLabelStyle={{color: 'white'}}
+//             value={this.state.value}
+//             onChange={this.handleChange}
+//             autoWidth={true}
+//           >
+//             {
+//               this.props.categories.map((category) => {
+//                 return <MenuItem key={category.id} value={category.id} primaryText={category.text}/>
+//               })
+//             }
+//           </SelectField>
+//       </div>
+//     );
+//   }
+// }

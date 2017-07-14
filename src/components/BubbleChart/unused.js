@@ -7,53 +7,55 @@ import '../../style.css';
 
 export default class BubbleChart extends BaseChart {
 
+        original
+        addText() {
+            this.text = this.node.append("text")
+                .attr("dy", ".3em")
+                .attr("class", "bubble-text")
+                .style("text-anchor", "middle")
+                .style("pointer-events", "none")
+                .text(this.setText);
+        }
 
-      addText() {
-          this.text = this.node.append("text")
-              .attr("dy", "-0.3em")
-              .attr("class", "bubble-text")
-              .style("text-anchor", "middle")
-              .style("pointer-events", "none")
-              .style("font-size", function(d) {
-                     let len = d.data.name.substring(0, d.r / 3).length;
-                     let size = d.r/3;
-                     size *= 10 / len;
-                     size += 1;
-                     return Math.round(size)+'px';
-               })
-              .text(function(d) {
-                       let text = d.data.name;
-                      //  console.error("Initial value - ", text);
-                       let pos = text.indexOf(' ', text.length / 2);
-                       if(pos < text.length / 2 + 5) {
-                          text = text.substring(0, pos);
-                       }
-                    return text;
-                })
+      // addText() {
+      //
+      //     console.log('in da addText', this.node);
+      //     this.text = this.node.append("text")
+      //         .attr("class", "bubble-text")
+      //         .style("pointer-events", "none")
+      //         .call(wrap, 300)
+      //         .text(this.setText);
+      // //
+      //
+      //         console.log(this.text);
+      //
+      //
+      //     function wrap(text, width) {
+      //       text.each(function() {
+      //         var text = d3.select(this),
+      //             words = text.text().split(/\s+/).reverse(),
+      //             word,
+      //             line = [],
+      //             lineNumber = 0,
+      //             lineHeight = 1.1, // ems
+      //             y = text.attr("y"),
+      //             dy = parseFloat(text.attr("dy")),
+      //             tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+      //                 console.log(' in da wrap, text',this)
+      //         while (word = words.pop()) {
+      //           line.push(word);
+      //           tspan.text(line.join(" "));
+      //           if (tspan.node().getComputedTextLength() > width) {
+      //             line.pop();
+      //             tspan.text(line.join(" "));
+      //             line = [word];
+      //             tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      //           }
+      //         }
+      //       });
+      //     }
+      // }
 
-               this.text = this.node.append("text")
-                   .attr("dy", "0.9em")
-                   .attr("class", "bubble-text")
-                   .style("text-anchor", "middle")
-                   .style("pointer-events", "none")
-                   //custom text from here ----
-                   .style("font-size", function(d) {
-                          let len = d.data.name.substring(0, d.r / 3).length;
-                          let size = d.r/3;
-                          size *= 10 / len;
-                          size += 1;
-                          return Math.round(size)+'px';
-                    })
-                   .text(function(d) {
-                          let text = d.data.name;
-                          let pos = text.indexOf(' ', text.length / 2);
-                          // console.error("Initial value --- ", text, pos, (text.length / 2 + 5));
-                          if(pos < (text.length / 2 + 5)) {
-                             text = text.substring(pos+1);
-                          }
-                          return text;
-                      })
-}
 
 
     // for now add this part so only the second part of the text is

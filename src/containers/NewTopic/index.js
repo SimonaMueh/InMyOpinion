@@ -69,13 +69,19 @@ handleCategory = (category) => {
     console.log('in da NewTopic', this.state);
     return (
       <div>
-        <div class="newTopic">
-          <SelectTextFragment setFragment={this.handleTextFragment}/>
-          <TextField hintText={"Enter your topic here..."} hintStyle={{color: 'white'}} onChange={this.handleFieldInput} />
-          <SelectCategory selectCategory={this.handleCategory}/>
-        </div>
-        <div class="newTopicButton">
-          <RaisedButton label="create new topic" onTouchTap = {this.handleCreateNewTopicClick} />
+        <div className="NewTopicContainer">
+          <div class="newTopicLine1">
+            <SelectTextFragment setFragment={this.handleTextFragment}/>
+          </div>
+          <div className="newTopicLine2">
+            <TextField hintText={"Enter your topic here..."} hintStyle={{color: 'white'}} onChange={this.handleFieldInput} />
+          </div>
+          <div className="newTopicLine3">
+            <SelectCategory selectCategory={this.handleCategory}/>
+          </div>
+          <div className="newTopicButton">
+            <RaisedButton label="create new topic" onTouchTap = {this.handleCreateNewTopicClick} />
+          </div>
         </div>
       </div>
     );
